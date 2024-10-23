@@ -90,7 +90,7 @@ void Nrf24_config(NRF24_t * dev, uint8_t channel, uint8_t payload)
 {
 	dev->channel = channel;
 	dev->payload = payload;
-    Nrf24_getStatus(); // necessary or channel doesn't get updated on next line
+    Nrf24_getStatus(dev); // necessary or channel doesn't get updated on next line
     Nrf24_configRegister(RF_CH, channel); // Set RF channel
 	Nrf24_configRegister(RX_PW_P0, dev->payload); // Set length of incoming payload
 	Nrf24_configRegister(RX_PW_P1, dev->payload);
@@ -157,7 +157,7 @@ void Nrf24_addRADDR(NRF24_t * dev, uint8_t pipe, uint8_t adr)
 // Checks if data is available for reading
 extern bool Nrf24_dataReady(NRF24_t * dev)
 {
-	uint8_t status = Nrf24_getStatus();
+	uint8_t status = Nrf24_getStatus(dev);
 	if ( status & (1 << RX_DR) ) {
 		return 1;
 	}
@@ -166,7 +166,7 @@ extern bool Nrf24_dataReady(NRF24_t * dev)
 
 // Get pipe number for reading
 uint8_t Nrf24_getDataPipe(NRF24_t * dev) {
-	return ((Nrf24_getStatus(NRF24_t * dev) & 0x0E) >> 1);
+	return ((Nrf24_getStatus(dev) & 0x0E) >> 1);
 }
 
 extern bool Nrf24_rxFifoEmpty(NRF24_t * dev)
@@ -230,10 +230,10 @@ void Nrf24_writeRegister(uint8_t reg, uint8_t * value, uint8_t len)
 void Nrf24_send(NRF24_t * dev, uint8_t * value)
 {
 	uint8_t status;
-    status = Nrf24_getStatus();
+    status = Nrf24_getStatus(dev);
 	while (dev->PTX) // Wait until last packet is sent
 	{
-		status = Nrf24_getStatus();
+		status = Nrf24_getStatus(dev);
 		if ((status & ((1 << TX_DS)  | (1 << MAX_RT))))
 		{
 			dev->PTX = 0;
@@ -258,7 +258,7 @@ bool Nrf24_isSending(NRF24_t * dev) {
 	uint8_t status;
 	if (dev->PTX)
 	{
-		status = Nrf24_getStatus();
+		status = Nrf24_getStatus(dev);
 		if ((status & ((1 << TX_DS)  | (1 << MAX_RT)))) {// if sending successful (TX_DS) or max retries exceeded (MAX_RT).
 			Nrf24_powerUpRx(dev);
 			return false;
@@ -275,7 +275,7 @@ bool Nrf24_isSend(NRF24_t * dev, int timeout) {
 	uint8_t status;
 	if (dev->PTX) {
 		for(unsigned long int i = 0; i < timeout; i++) {
-			status = Nrf24_getStatus();
+			status = Nrf24_getStatus(dev);
 
 			if (status & (1 << TX_DS)) { // Data Sent TX FIFO interrupt
 				Nrf24_powerUpRx(dev);
@@ -294,7 +294,7 @@ bool Nrf24_isSend(NRF24_t * dev, int timeout) {
 }
 
 
-uint8_t Nrf24_getStatus() {
+uint8_t Nrf24_getStatus(NRF24_t * dev) {
 	uint8_t rv;
 	Nrf24_readRegister(NRF_STATUS, &rv, 1);
 	return rv;
@@ -375,7 +375,7 @@ void Nrf24_printDetails(NRF24_t * dev)
 {
 	printf("================ NRF Configuration ================\n");
 
-	Nrf24_print_status(Nrf24_getStatus());
+	Nrf24_print_status(Nrf24_getStatus(dev));
 
 	Nrf24_print_address_register(dev, "RX_ADDR_P0-1", RX_ADDR_P0, 2);
 	Nrf24_print_byte_register(dev, "RX_ADDR_P2-5", RX_ADDR_P2, 4);
