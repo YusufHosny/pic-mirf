@@ -2,6 +2,7 @@
 #define MAIN_MIRF_H_
 
 #include "mcc_generated_files/system/system.h"
+#include <inttypes.h>
 
 #ifdef __cplusplus
 extern "C" {

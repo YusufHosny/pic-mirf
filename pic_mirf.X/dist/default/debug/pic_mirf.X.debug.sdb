@@ -4,13 +4,13 @@
 [d chip 18F57Q43 ]
 [d frameptr 1249 ]
 "436 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
-[e E17429 . `uc
+[e E17454 . `uc
 RF24_1MBPS 0
 RF24_2MBPS 1
 RF24_250KBPS 2
 ]
 "462
-[e E17434 . `uc
+[e E17459 . `uc
 RF24_CRC_DISABLED 0
 RF24_CRC_8 1
 RF24_CRC_16 2
@@ -918,7 +918,7 @@ RF24_CRC_16 2
 "437
 [v Nrf24_getDataRate@dr dr `uc  1 a 1 16 ]
 "436
-[v Nrf24_getDataRate@result result `E17429  1 a 1 15 ]
+[v Nrf24_getDataRate@result result `E17454  1 a 1 15 ]
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
 "434
 [v Nrf24_getDataRate@dev dev `*.39S939  1 p 2 13 ]
@@ -932,7 +932,7 @@ RF24_CRC_16 2
 "467
 [v Nrf24_getCRCLength@AA AA `uc  1 a 1 16 ]
 "462
-[v Nrf24_getCRCLength@result result `E17434  1 a 1 15 ]
+[v Nrf24_getCRCLength@result result `E17459  1 a 1 15 ]
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
 "460
 [v Nrf24_getCRCLength@dev dev `*.39S939  1 p 2 13 ]
