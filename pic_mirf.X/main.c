@@ -9,7 +9,7 @@
 
 #include "mirf.h"
 
-#define CONFIG_SENDER 1
+#define CONFIG_RECEIVER 1
 #define CONFIG_RADIO_CHANNEL 115
 #define CONFIG_ADVANCED 1
 #define CONFIG_RF_RATIO_1M 1

@@ -73,8 +73,8 @@ RF24_CRC_16 2
 [v _led_toggle led_toggle `(v  1 e 1 0 ]
 "23
 [v _AdvancedSettings AdvancedSettings `(v  1 e 1 0 ]
-"82
-[v _sender sender `(v  1 e 1 0 ]
+"41
+[v _receiver receiver `(v  1 e 1 0 ]
 "112
 [v _main main `(v  1 e 1 0 ]
 "69 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mcc_generated_files/spi/src/spi1.c
@@ -155,18 +155,18 @@ RF24_CRC_16 2
 [v _Nrf24_init Nrf24_init `(v  1 e 1 0 ]
 "89
 [v _Nrf24_config Nrf24_config `(v  1 e 1 0 ]
-"115
-[v _Nrf24_setTADDR Nrf24_setTADDR `(i  1 e 2 0 ]
+"102
+[v _Nrf24_setRADDR Nrf24_setRADDR `(i  1 e 2 0 ]
+"158
+[v _Nrf24_dataReady Nrf24_dataReady `(a  1 e 1 0 ]
+"180
+[v _Nrf24_getData Nrf24_getData `(v  1 e 1 0 ]
 "198
 [v _Nrf24_configRegister Nrf24_configRegister `(v  1 e 1 0 ]
 "207
 [v _Nrf24_readRegister Nrf24_readRegister `(v  1 e 1 0 ]
 "218
 [v _Nrf24_writeRegister Nrf24_writeRegister `(v  1 e 1 0 ]
-"230
-[v _Nrf24_send Nrf24_send `(v  1 e 1 0 ]
-"274
-[v _Nrf24_isSend Nrf24_isSend `(a  1 e 1 0 ]
 "297
 [v _Nrf24_getStatus Nrf24_getStatus `(uc  1 e 1 0 ]
 "303
@@ -492,7 +492,7 @@ RF24_CRC_16 2
 [v _LATB LATB `VEuc  1 e 1 @1215 ]
 "48985
 [v _LATC LATC `VEuc  1 e 1 @1216 ]
-[s S1043 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1041 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -502,10 +502,10 @@ RF24_CRC_16 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "49002
-[u S1052 . 1 `S1043 1 . 1 0 ]
+[u S1050 . 1 `S1041 1 . 1 0 ]
 "49002
 "49002
-[v _LATCbits LATCbits `VES1052  1 e 1 @1216 ]
+[v _LATCbits LATCbits `VES1050  1 e 1 @1216 ]
 "49047
 [v _LATD LATD `VEuc  1 e 1 @1217 ]
 "49109
@@ -598,36 +598,34 @@ RF24_CRC_16 2
 {
 "128
 } 0
-"82
-[v _sender sender `(v  1 e 1 0 ]
+"41
+[v _receiver receiver `(v  1 e 1 0 ]
 {
-"103
-[v sender@buf buf `[32]uc  1 a 32 16 ]
+"62
+[v receiver@buf buf `[32]uc  1 a 32 16 ]
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
-"84
-[v sender@nrf nrf `S939  1 a 3 50 ]
-"91
-[v sender@ret ret `i  1 a 2 48 ]
-"82
-[v sender@pvParameters pvParameters `*.39v  1 p 2 14 ]
-"101
-[v sender@F17891 F17891 `[32]uc  1 s 32 F17891 ]
-"109
+"43
+[v receiver@dev dev `S939  1 a 3 50 ]
+"50
+[v receiver@ret ret `i  1 a 2 48 ]
+"41
+[v receiver@pvParameters pvParameters `*.39v  1 p 2 14 ]
+"77
 } 0
-"115 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
-[v _Nrf24_setTADDR Nrf24_setTADDR `(i  1 e 2 0 ]
+"102 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
+[v _Nrf24_setRADDR Nrf24_setRADDR `(i  1 e 2 0 ]
 {
-"122
-[v Nrf24_setTADDR@i i `i  1 a 2 27 ]
-"120
-[v Nrf24_setTADDR@buffer buffer `[5]uc  1 a 5 20 ]
-"117
-[v Nrf24_setTADDR@ret ret `i  1 a 2 25 ]
+"108
+[v Nrf24_setRADDR@i i `i  1 a 2 27 ]
+"106
+[v Nrf24_setRADDR@buffer buffer `[5]uc  1 a 5 20 ]
+"104
+[v Nrf24_setRADDR@ret ret `i  1 a 2 25 ]
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
-"115
-[v Nrf24_setTADDR@dev dev `*.39S939  1 p 2 13 ]
-[v Nrf24_setTADDR@adr adr `*.32uc  1 p 2 15 ]
-"126
+"102
+[v Nrf24_setRADDR@dev dev `*.39S939  1 p 2 13 ]
+[v Nrf24_setRADDR@adr adr `*.32uc  1 p 2 15 ]
+"112
 } 0
 "218
 [v _Nrf24_writeRegister Nrf24_writeRegister `(v  1 e 1 0 ]
@@ -640,24 +638,13 @@ RF24_CRC_16 2
 [v Nrf24_writeRegister@reg reg `uc  1 p 1 12 ]
 "226
 } 0
-"230
-[v _Nrf24_send Nrf24_send `(v  1 e 1 0 ]
-{
-"232
-[v Nrf24_send@status status `uc  1 a 1 21 ]
-[s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
-"230
-[v Nrf24_send@dev dev `*.39S939  1 p 2 16 ]
-[v Nrf24_send@value value `*.39uc  1 p 2 18 ]
-"253
-} 0
 "54
 [v _SPI_write_buff SPI_write_buff `(v  1 e 1 0 ]
 {
 "56
 [v SPI_write_buff@i i `uc  1 a 1 8 ]
 "54
-[v SPI_write_buff@buffer buffer `*.34uc  1 p 2 5 ]
+[v SPI_write_buff@buffer buffer `*.32uc  1 p 2 5 ]
 [v SPI_write_buff@bytes bytes `uc  1 p 1 7 ]
 "63
 } 0
@@ -667,14 +654,7 @@ RF24_CRC_16 2
 [v DELAY_microseconds@microseconds microseconds `us  1 p 2 3 ]
 "54
 } 0
-"318 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
-[v _Nrf24_powerUpTx Nrf24_powerUpTx `(v  1 e 1 0 ]
-{
-[s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
-[v Nrf24_powerUpTx@dev dev `*.39S939  1 p 2 7 ]
-"322
-} 0
-"374
+"374 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
 [v _Nrf24_printDetails Nrf24_printDetails `(v  1 e 1 0 ]
 {
 "395
@@ -737,9 +717,9 @@ RF24_CRC_16 2
 {
 "1820
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 62 ]
-[s S1864 _IO_FILE 0 ]
+[s S1862 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.39S1864  1 p 2 56 ]
+[v vfprintf@fp fp `*.39S1862  1 p 2 56 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 58 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 60 ]
 "1840
@@ -747,16 +727,16 @@ RF24_CRC_16 2
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1888 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1886 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1888  1 a 4 49 ]
+[v vfpfcnvrt@convarg convarg `S1886  1 a 4 49 ]
 "1179
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 54 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 53 ]
-[s S1864 _IO_FILE 0 ]
+[s S1862 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.39S1864  1 p 2 41 ]
+[v vfpfcnvrt@fp fp `*.39S1862  1 p 2 41 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 43 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 45 ]
 "1814
@@ -771,9 +751,9 @@ RF24_CRC_16 2
 [v xtoa@c c `uc  1 a 1 38 ]
 "1067
 [v xtoa@p p `a  1 a 1 35 ]
-[s S1864 _IO_FILE 0 ]
+[s S1862 _IO_FILE 0 ]
 "1055
-[v xtoa@fp fp `*.39S1864  1 p 2 28 ]
+[v xtoa@fp fp `*.39S1862  1 p 2 28 ]
 [v xtoa@d d `ui  1 p 2 30 ]
 "1153
 } 0
@@ -788,9 +768,9 @@ RF24_CRC_16 2
 [v stoa@w w `i  1 a 2 20 ]
 "945
 [v stoa@p p `i  1 a 2 18 ]
-[s S1864 _IO_FILE 0 ]
+[s S1862 _IO_FILE 0 ]
 "942
-[v stoa@fp fp `*.39S1864  1 p 2 12 ]
+[v stoa@fp fp `*.39S1862  1 p 2 12 ]
 [v stoa@s s `*.34uc  1 p 2 14 ]
 "997
 } 0
@@ -816,9 +796,9 @@ RF24_CRC_16 2
 [v dtoa@s s `uc  1 a 1 37 ]
 "520
 [v dtoa@p p `a  1 a 1 34 ]
-[s S1864 _IO_FILE 0 ]
+[s S1862 _IO_FILE 0 ]
 "513
-[v dtoa@fp fp `*.39S1864  1 p 2 28 ]
+[v dtoa@fp fp `*.39S1862  1 p 2 28 ]
 [v dtoa@d d `i  1 p 2 30 ]
 "583
 } 0
@@ -827,9 +807,9 @@ RF24_CRC_16 2
 {
 "195
 [v pad@i i `i  1 a 2 26 ]
-[s S1864 _IO_FILE 0 ]
+[s S1862 _IO_FILE 0 ]
 "193
-[v pad@fp fp `*.39S1864  1 p 2 19 ]
+[v pad@fp fp `*.39S1862  1 p 2 19 ]
 [v pad@buf buf `*.39uc  1 p 2 21 ]
 [v pad@p p `i  1 p 2 23 ]
 "226
@@ -843,18 +823,18 @@ RF24_CRC_16 2
 [v fputs@c c `uc  1 a 1 16 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 12 ]
-[u S1843 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
-[s S1846 _IO_FILE 11 `S1843 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S1846  1 p 2 14 ]
+[u S1841 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S1844 _IO_FILE 11 `S1841 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S1844  1 p 2 14 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 3 ]
-[u S1843 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
-[s S1846 _IO_FILE 11 `S1843 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S1846  1 p 2 5 ]
+[u S1841 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S1844 _IO_FILE 11 `S1841 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S1844  1 p 2 5 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
@@ -938,26 +918,7 @@ RF24_CRC_16 2
 [v Nrf24_getCRCLength@dev dev `*.39S939  1 p 2 13 ]
 "479
 } 0
-"274
-[v _Nrf24_isSend Nrf24_isSend `(a  1 e 1 0 ]
-{
-"277
-[v Nrf24_isSend@i i `ul  1 a 4 24 ]
-"275
-[v Nrf24_isSend@status status `uc  1 a 1 28 ]
-[s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
-"274
-[v Nrf24_isSend@dev dev `*.39S939  1 p 2 16 ]
-[v Nrf24_isSend@timeout timeout `i  1 p 2 18 ]
-"294
-} 0
-"37 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mcc_generated_files/timer/src/delay.c
-[v _DELAY_milliseconds DELAY_milliseconds `(v  1 e 1 0 ]
-{
-[v DELAY_milliseconds@milliseconds milliseconds `us  1 p 2 3 ]
-"41
-} 0
-"70 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
+"70
 [v _Nrf24_init Nrf24_init `(v  1 e 1 0 ]
 {
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
@@ -973,7 +934,25 @@ RF24_CRC_16 2
 [v SPI1_Open@spiConfigIndex spiConfigIndex `uc  1 p 1 3 ]
 "110
 } 0
-"89 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
+"180 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mirf.c
+[v _Nrf24_getData Nrf24_getData `(v  1 e 1 0 ]
+{
+[s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
+[v Nrf24_getData@dev dev `*.39S939  1 p 2 9 ]
+[v Nrf24_getData@data data `*.39uc  1 p 2 11 ]
+"195
+} 0
+"158
+[v _Nrf24_dataReady Nrf24_dataReady `(a  1 e 1 0 ]
+{
+"160
+[v Nrf24_dataReady@status status `uc  1 a 1 18 ]
+[s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
+"158
+[v Nrf24_dataReady@dev dev `*.39S939  1 p 2 16 ]
+"165
+} 0
+"89
 [v _Nrf24_config Nrf24_config `(v  1 e 1 0 ]
 {
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
@@ -1005,6 +984,12 @@ RF24_CRC_16 2
 [s S939 . 3 `uc 1 PTX 1 0 `uc 1 channel 1 1 `uc 1 payload 1 2 ]
 [v Nrf24_flushRx@dev dev `*.39S939  1 p 2 5 ]
 "316
+} 0
+"37 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\mcc_generated_files/timer/src/delay.c
+[v _DELAY_milliseconds DELAY_milliseconds `(v  1 e 1 0 ]
+{
+[v DELAY_milliseconds@milliseconds milliseconds `us  1 p 2 3 ]
+"41
 } 0
 "23 C:\Users\Yusuf\Desktop\Stuff\Uni\Masters\EE3\PICNRF\Library\pic_mirf.X\main.c
 [v _AdvancedSettings AdvancedSettings `(v  1 e 1 0 ]
